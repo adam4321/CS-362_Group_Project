@@ -8,31 +8,30 @@ Math operations which are called in the display.py file
 
 import math
 
-
-def Multiplication(op1, op2):
+def multiplication(op1, op2):
     return None
 
-def Division(op1, op2):
+def division(op1, op2):
     return None
 
-def Square_Root(op1):
+def square_root(op1):
     return None
 
-def Power_Two(op1):
+def power_two(op1):
     return None
 
-def Inverse(op1):
+def inverse(op1):
     return None
 
-def Factorial(op1):
+def factorial(op1):
     return None
 
-def Absolute_Val(op1):
+def absolute_val(op1):
     return None
 
-def Sine(op1):
+def sine(op1):
     return None
 
-def Cosine(op1):
+def cosine(op1):
     return None
 

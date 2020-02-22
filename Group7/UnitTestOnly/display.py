@@ -9,14 +9,13 @@ and calls the math operations in the operations.py file
 
 import operations
 
-
 class Display:
     def __init__(self):
         self.exit = False
         self.current_operation = None
         
     # Menu printed in while loop until exit
-    def Print_Menu(self):
+    def print_menu(self):
         print()
         print("   Command line Calculator     ")
         print("             --                ")
@@ -34,76 +33,58 @@ class Display:
         print()
 
     # Receives keyboard input to set current function
-    def Choose_Operation(self):
+    def choose_operation(self):
         choice = input("Which operation would you like?  ")
         print()
 
         switcher = {
-            # "1": self.Call_Multiplication,
-            # "2": self.Call_Division,
-            # "3": self.Call_Square_Root,
-            # "4": self.Call_Power_Two,
-            # "5": self.Call_Inverse,
-            # "6": self.Call_Factorial,
-            # "7": self.Call_Absolute_Val,
-            # "8": self.Call_Sine,
-            # "9": self.Call_Cosine,
-            "0": self.Call_Exit
+            # "1": self.call_multiplication,
+            # "2": self.call_division,
+            # "3": self.call_square_root,
+            # "4": self.call_power_two,
+            # "5": self.call_inverse,
+            # "6": self.call_factorial,
+            # "7": self.call_absolute_val,
+            # "8": self.call_sine,
+            # "9": self.call_cosine,
+            "0": self.call_exit
         }
 
         # Get the function from switcher dictionary
         self.current_operation = switcher.get(choice, lambda: "Invalid Operation")
 
-    # Prompt for values and call Multiplication Function
-    def Call_Multiplication(self):
+    # Prompt for values and call multiplication function
+    def call_multiplication(self):
         op1 = input("The first operand ")
         op2 = input("The second operand ")
         print()
-        print(op1 + " * " + op2 + " = " + str(operations.Multiplication(float(op1), float(op2))))
+        print(op1 + " * " + op2 + " = " + str(operations.multiplication(float(op1), float(op2))))
 
-    # Prompt for values and call Multiplication Function
-
-
-    # Prompt for values and call Power 2 Function
+    # Prompt for values and call division function
 
 
-    # Prompt for values and call Square Root Function
+    # Prompt for values and call power 2 function
 
 
-    # Prompt for values and call Inverse Function
+    # Prompt for values and call square root function
 
 
-    # Prompt for values and call Factorial Function
+    # Prompt for values and call inverse function
 
 
-    # Prompt for values and call Absolute Value Function
+    # Prompt for values and call factorial function
 
 
-    # Prompt for values and call Sine Function
+    # Prompt for values and call absolute value function
 
 
-    # Prompt for values and call Cosine Function
+    # Prompt for values and call sine function
+
+
+    # Prompt for values and call cosine function
 
 
     # Print message and exit
-    def Call_Exit(self):
+    def call_exit(self):
         print("-- Goodbye --")
         self.exit = True
-
-
-def main():
-    # Create a operations instance
-    operations = Display()
-
-    # Print menu and loop until exit
-    while operations.exit == False:
-        operations.Print_Menu()
-        operations.Choose_Operation()
-        operations.current_operation()
-
-        if (operations.exit == True):
-            break
-
-
-if __name__ == '__main__':
-    main()

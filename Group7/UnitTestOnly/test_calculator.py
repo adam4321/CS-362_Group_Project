@@ -12,70 +12,70 @@ from unittest import TestCase
 
 
 class Test_Operations(TestCase):
-    def test_Multiplication(self):
-        test_val1 = operations.Multiplication(5, 6)
-        test_val2 = operations.Multiplication(-5, 6)
-        test_val3 = operations.Multiplication(5.3, 6.7)
+    def test_multiplication(self):
+        test_val1 = operations.multiplication(5, 6)
+        test_val2 = operations.multiplication(-5, 6)
+        test_val3 = operations.multiplication(5.3, 6.7)
 
 
         assert(test_val1 == 30)
         assert(test_val2 == -30)
         assert(test_val3 == 35.51)
 
-    def test_Division(self):
-        test_val1 = operations.Division(4, 2)
-        test_val2 = operations.Division(5, -2)
-        test_val3 = operations.Division(5.8, 2.5)
-        test_val4 = operations.Division(5.3, 6.7)
+    def test_division(self):
+        test_val1 = operations.division(4, 2)
+        test_val2 = operations.division(5, -2)
+        test_val3 = operations.division(5.8, 2.5)
+        test_val4 = operations.division(5.3, 6.7)
 
         assert(test_val1 == 2)
         assert(test_val2 == -2.5)
         assert(test_val3 == 2.32)
         assert(test_val4 == 0.791045)
 
-    def test_Square_Root(self):
-        test_val1 = operations.Square_Root(16)
-        test_val2 = operations.Square_Root(4)
-        test_val3 = operations.Square_Root(64)
-        test_val4 = operations.Square_Root(73.96)
+    def test_square_root(self):
+        test_val1 = operations.square_root(16)
+        test_val2 = operations.square_root(4)
+        test_val3 = operations.square_root(64)
+        test_val4 = operations.square_root(73.96)
 
         assert(test_val1 == 4)
         assert(test_val2 == 2)
         assert(test_val3 == 8)
         assert(test_val4 == 8.6)
 
-    def test_Power_Two(self):
-        test_val1 = operations.Power_Two(4)
-        test_val2 = operations.Power_Two(-2)
-        test_val3 = operations.Power_Two(8)
-        test_val4 = operations.Power_Two(8.6)
+    def test_power_two(self):
+        test_val1 = operations.power_two(4)
+        test_val2 = operations.power_two(-2)
+        test_val3 = operations.power_two(8)
+        test_val4 = operations.power_two(8.6)
 
         assert(test_val1 == 16)
         assert(test_val2 == 4)
         assert(test_val3 == 64)
         assert(test_val4 == 73.96)
 
-    def test_Inverse(self):
-        test_val1 = operations.Inverse(4)
-        test_val2 = operations.Inverse(-2)
-        test_val3 = operations.Inverse(8)
-        test_val4 = operations.Inverse(8.6)
+    def test_inverse(self):
+        test_val1 = operations.inverse(4)
+        test_val2 = operations.inverse(-2)
+        test_val3 = operations.inverse(8)
+        test_val4 = operations.inverse(8.6)
 
         assert(test_val1 == 0.25)
         assert(test_val2 == -0.5)
         assert(test_val3 == 0.125)
         assert(test_val4 == 0.116279)
 
-    # def test_Factorial(self):
+    # def test_factorial(self):
 
 
-    # def test_Absolute_Val(self):
+    # def test_absolute_val(self):
 
 
-    # def test_Sine(self):
+    # def test_sine(self):
         
 
-    # def test_Cosine(self):
+    # def test_cosine(self):
 
 
 class Test_Display(TestCase):
@@ -89,17 +89,17 @@ class Test_Display(TestCase):
         assert(self.exit == False)
         assert(self.current_operation == None)
 
-    def test_Print_Menu(self):
+    def test_print_menu(self):
         self.set_up()
 
 
 
-    def test_Set_Exit(self):
+    def test_set_exit(self):
         self.set_up()
 
 
 
-    def test_Choose_Operation(self):
+    def test_choose_operation(self):
         self.set_up()
 
 
