@@ -13,24 +13,24 @@ class Display:
     def __init__(self):
         self.exit = False
         self.current_operation = None
+        self.menu_string = ("\n"
+            "   Command line Calculator     \n"
+            "             --                \n"
+            "(1) Multiplication\n"
+            "(2) Division\n"
+            "(3) Square_Root\n"
+            "(4) Power_Two\n"
+            "(5) Inverse\n"
+            "(6) Factorial\n"
+            "(7) Absolute_Val\n"
+            "(8) Sine\n"
+            "(9) Cosine\n"
+            "\n"
+            "(0) EXIT\n")
         
     # Menu printed in while loop until exit
     def print_menu(self):
-        print()
-        print("   Command line Calculator     ")
-        print("             --                ")
-        print("(1) Multiplication")
-        print("(2) Division")
-        print("(3) Square_Root")
-        print("(4) Power_Two")
-        print("(5) Inverse")
-        print("(6) Factorial")
-        print("(7) Absolute_Val")
-        print("(8) Sine")
-        print("(9) Cosine")
-        print()
-        print("(0) EXIT")
-        print()
+        print(self.menu_string)
 
     # Receives keyboard input to set current function
     def choose_operation(self):
