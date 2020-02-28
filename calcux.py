@@ -99,8 +99,6 @@ class Window(Frame):
         print(f'displayField: {number}')
 
 
-
-
 root = Tk()
 root.title("Simple Calculator")
 # root.geometry("500x500")
@@ -109,8 +107,5 @@ default_font.configure(size=24)
 root.option_add("*Font", default_font)
 
 app = Window(root)
-
-
-
 
 root.mainloop()
