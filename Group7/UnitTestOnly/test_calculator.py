@@ -6,65 +6,11 @@ Group 7
 Unit test file for the display.py and operations.py
 """
 
-import operations
-import display
+
 import calculator
 import unittest
-import unittest.mock
 from unittest import TestCase
 import pytest
-import io
-import sys
-# import keyboard
-
-class Test_Display(TestCase):
-    def set_up(self):
-        self.exit = False
-        self.current_operation = None
-        self.menu_string = ("\n"
-            "   Command line Calculator     \n"
-            "             --                \n"
-            "(1) Multiplication\n"
-            "(2) Division\n"
-            "(3) Square_Root\n"
-            "(4) Power_Two\n"
-            "(5) Inverse\n"
-            "(6) Factorial\n"
-            "(7) Absolute_Val\n"
-            "(8) Sine\n"
-            "(9) Cosine\n"
-            "\n"
-            "(0) EXIT\n")
-        # Calculator instance
-        self.test_calc = display.Display()
-
-    def test_init(self):
-        self.set_up()
-
-        assert(self.exit == self.test_calc.exit)
-        assert(self.current_operation == self.test_calc.current_operation)
-        assert(self.menu_string == self.test_calc.menu_string)
-
-    # Test fixture for capturing printing to stdout 
-    @pytest.fixture(autouse=True)
-    def _pass_fixtures(self, capsys):
-        self.capsys = capsys    
-    
-    def test_print_menu(self):
-        self.set_up()
-        self.test_calc.print_menu()
-
-        captured = self.capsys.readouterr()
-        self.assertEqual(self.menu_string + "\n", captured.out)
-
-    # def test_choose_operation(self):
-    #     self.set_up()
-    #     assert(hasattr(self.test_calc.current_operation, '__self__') == False)
-
-    #     self.test_calc.choose_operation()
-    #     keyboard.press_and_release("0")
-    #     keyboard.press_and_release("enter")
-    #     assert(hasattr(self.test_calc.current_operation, '__self__') == True)
 
 
 class Test_Operations(TestCase):

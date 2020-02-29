@@ -3,25 +3,34 @@ Final Project CS-362
 Oregon State University Winter term 2020
 Group 7
 
-Entry point for calculator
+Math operations which are called in the display.py file
 """
 
-import display
+import math
 
-def main():
-    # Create a display instance
-    running_calc = display.Display()
+def multiplication(op1, op2):
+    return None
 
-    # Loop until the user chooses to exit (0 on menu) 
-    while running_calc.exit == False:
-        running_calc.print_menu()
-        running_calc.choose_operation()
-        running_calc.current_operation()
+def division(op1, op2):
+    return None
 
-        if (running_calc.exit == True):
-            break
+def square_root(op1):
+    return None
 
+def power_two(op1):
+    return None
 
-# Define this file as main
-if __name__ == '__main__':
-    main()
+def inverse(op1):
+    return None
+
+def factorial(op1):
+    return None
+
+def absolute_val(op1):
+    return None
+
+def sine(op1):
+    return None
+
+def cosine(op1):
+    return None
