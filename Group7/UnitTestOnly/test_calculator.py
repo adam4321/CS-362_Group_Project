@@ -45,7 +45,7 @@ class Test_Operations(TestCase):
         self.assertTrue(test_val2, 2)
         self.assertTrue(test_val3, 8)
         self.assertTrue(test_val4, 8.6)
-        self.assertAlmostEqualTrue(2,  calculator.square_root(5), 2)
+        self.assertAlmostEqual(2,  calculator.square_root(5), 2)
 
     def test_power_two(self):
         test_val1 = calculator.power_two(4)
@@ -79,7 +79,7 @@ class Test_Operations(TestCase):
         self.assertTrue(test_val2, 1)
         self.assertTrue(test_val3, 1)
         self.assertTrue(test_val4, 120)
-        self.assertAlmostEqualTrue(1,  calculator.factorial(1.2), 2)
+        self.assertAlmostEqual(1,  calculator.factorial(1.2), 2)
 
     def test_absolute_val(self):
         test_val1 = calculator.absolute_val(-1)
@@ -109,7 +109,7 @@ class Test_Operations(TestCase):
         test_val3 = calculator.cosine(1.5)
         test_val4 = calculator.cosine(2.58)
 
-        self.assertAlmostEqualTrue(test_val1, 540302, 5)
+        self.assertAlmostEqual(test_val1, 540302, 5)
         self.assertTrue(test_val2, 1)
         self.assertTrue(test_val3, 0.070737)
         self.assertTrue(test_val4, -0.846408)
