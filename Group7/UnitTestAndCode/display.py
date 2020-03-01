@@ -123,7 +123,7 @@ class Display:
         op1 = input("The sine in radians of? ")
         print()
         try:
-            print("sin" + op1 + " = " + str(operations.sine(float(op1))))
+            print("sin " + op1 + " = " + str(operations.sine(float(op1))))
         except:
             print("Invalid operand type")
 
