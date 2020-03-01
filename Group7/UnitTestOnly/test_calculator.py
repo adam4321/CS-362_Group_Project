@@ -113,3 +113,4 @@ class Test_Operations(TestCase):
         self.assertEqual(test_val2, 1)
         self.assertEqual(test_val3, 0.070737)
         self.assertEqual(test_val4, -0.846408)
+        
