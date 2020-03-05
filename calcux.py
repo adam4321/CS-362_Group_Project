@@ -9,7 +9,7 @@ class Window(Frame):
         Frame.__init__(self, master)
         self.master = master
 
-        font
+        # font
         # self.pack(fill=BOTH, expand=1)
         self.grid(sticky=W+E+N+S)
 
