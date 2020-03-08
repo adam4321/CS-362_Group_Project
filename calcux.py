@@ -24,6 +24,7 @@ class Window(Frame):
         self.displayField = Entry(self, textvariable=self.num1, validate='key', validatecommand=vcmd, justify=RIGHT)
         self.displayField.icursor(END)
         self.displayField.grid(row=0, column=0, rowspan=2, columnspan=25, ipadx=2, ipady=2, padx=5, pady=5, sticky=N+S+E+W)
+
         # number and function buttons
         calcButtons = ["sin", "cos", "|x|", "x!", "1/x", "7", "8", "9", "√x", "x^2",
                        "4", "5", "6", "-", "/", "1", "2", "3", "+", "*", "+/-", "0", ".", "C"]
@@ -72,7 +73,13 @@ class Window(Frame):
     # returns current value of entry field
     def doCallBack(self, method):
         inputButtons = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", "."]
-        number = self.displayField.get()
+        if self.displayField.get() == '':
+            self.num1.set(0)
+        if self.validate(self.displayField.get()) == False:
+            self.num1.set('')
+            self.clear()
+            return
+        number = self.displayField.get()        
         if method in inputButtons:
             if number == "0":
                 self.num1.set(method.strip('\"'))
