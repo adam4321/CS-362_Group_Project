@@ -9,103 +9,61 @@ class Window(Frame):
         Frame.__init__(self, master)
         self.master = master
 
-        # font
         # self.pack(fill=BOTH, expand=1)
-        self.grid(sticky=W+E+N+S)
+        self.grid(sticky=N+S+E+W)
 
+        # input validation
+        vcmd = (self.register(self.validate), '%d', '%i', '%P', '%s', '%S', '%v', '%V', '%W')
         # number read out field
-        self.displayField = Entry(self, justify=RIGHT)
-        self.displayField.insert(END, '')
-        self.displayField.grid(row=0, column=0, rowspan=2, columnspan=6, ipadx=2, ipady=2, padx=5, pady=5, sticky=N+S+E+W)
+        self.displayField = Entry(self, validate='key', validatecommand=vcmd, justify=RIGHT)
+        self.displayField.insert(END, '0')
+        self.displayField.grid(row=0, column=0, rowspan=2, columnspan=25, ipadx=2, ipady=2, padx=5, pady=5, sticky=N+S+E+W)
 
         # number and function buttons
-        # row 2
-        sine = Button(self, text="sin", command=self.getEntry)
-        sine.grid(row=2, column=0, columnspan=2, sticky=N+S+E+W)
-
-        cosine = Button(self, text="cos", command=self.getEntry)
-        cosine.grid(row=2, column=2, columnspan=2, sticky=N+S+E+W)
-
-        absolute = Button(self, text="|x|", command=self.getEntry)
-        absolute.grid(row=2, column=4, sticky=N+S+E+W)
-
-        # row 3
-        seven = Button(self, text="7", command=self.getEntry)
-        seven.grid(row=3, column=0, sticky=N+S+E+W)
-
-        eight = Button(self, text="8", command=self.getEntry)
-        eight.grid(row=3, column=1, sticky=N+S+E+W)
-
-        nine = Button(self, text="9", command=self.getEntry)
-        nine.grid(row=3, column=2, sticky=N+S+E+W)
-
-        divide = Button(self, text="/", command=self.getEntry)
-        divide.grid(row=3, column=3, sticky=N+S+E+W)
-
-        square = Button(self, text="x^2", command=self.getEntry)
-        square.grid(row=3, column=4, sticky=N+S+E+W)
-
-        # row 4
-        four = Button(self, text="4", command=self.getEntry)
-        four.grid(row=4, column=0, sticky=N+S+E+W)
-
-        five = Button(self, text="5", command=self.getEntry)
-        five.grid(row=4, column=1, sticky=N+S+E+W)
-
-        six = Button(self, text="6", command=self.getEntry)
-        six.grid(row=4, column=2, sticky=N+S+E+W)
-
-        multiply = Button(self, text="*", command=self.getEntry)
-        multiply.grid(row=4, column=3, sticky=N+S+E+W)
-
-        inverse = Button(self, text="1/x", command=self.getEntry)
-        inverse.grid(row=4, column=4, sticky=N+S+E+W)
-
-        # row 5
-        one = Button(self, text="1", command=self.getEntry)
-        one.grid(row=5, column=0, sticky=N+S+E+W)
-
-        two = Button(self, text="2", command=self.getEntry)
-        two.grid(row=5, column=1, sticky=N+S+E+W)
-
-        three = Button(self, text="3", command=self.getEntry)
-        three.grid(row=5, column=2, sticky=N+S+E+W)
-
-        subtract = Button(self, text="-", command=self.getEntry)
-        subtract.grid(row=5, column=3, sticky=N+S+E+W)
-
-        factorial = Button(self, text="x!", command=self.getEntry)
-        factorial.grid(row=5, column=4, sticky=N+S+E+W)
-
-        # row 6
-        signed = Button(self, text="+/-", command=self.getEntry)
-        signed.grid(row=6, column=0, sticky=N+S+E+W)
-
-        zero = Button(self, text="0", command=self.getEntry)
-        zero.grid(row=6, column=1, sticky=N+S+E+W)
-
-        decimal = Button(self, text=".", command=self.getEntry)
-        decimal.grid(row=6, column=2, sticky=N+S+E+W)
-
-        add = Button(self, text="+", command=self.getEntry)
-        add.grid(row=6, column=3, sticky=N+S+E+W)
-
-        equals = Button(self, text="=", command=self.getEntry)
-        equals.grid(row=6, column=4, sticky=N+S+E+W)
+        calcButtons = ["sin", "cos", "|x|", "x!", "1/x", "7", "8", "9", "√x", "x^2",
+                       "4", "5", "6", "-", "/", "1", "2", "3", "+", "*", "+/-", "0", ".", "C"]
+        i = 2
+        j = 0
+        for b in calcButtons:
+            if j >= 25:
+                j = 0
+                i += 1
+            button = Button(self, text=b, command=lambda m=b: self.doCallBack(m))
+            button.grid(row=i, column=j, columnspan=5, sticky=N+S+E+W)
+            j += 5
+        
+        equals = Button(self, text="=", bg='#76d76e', command=lambda m="=": self.doCallBack(m))
+        equals.grid(row=6, column=20, columnspan=5, sticky=N+S+E+W)
 
 
-    def getEntry(self):
+    # validates input of entry field to float values
+    def validate(self, action, index, value_if_allowed, prior_value, text, validation_type, trigger_type, widget_name):
+            if value_if_allowed:
+                try:
+                    float(value_if_allowed)
+                    return True
+                except ValueError:
+                    self.bell()             # make fun error sound
+                    return False
+            else:
+                self.bell()             # make fun error sound
+                return False
+
+
+    # returns current value of entry field
+    def doCallBack(self, method):
         number = float(self.displayField.get())
+        print(f'came from button: {method}')
         print(f'displayField: {number}')
 
 
-root = Tk()
-root.title("Simple Calculator")
-# root.geometry("500x500")
-default_font = font.nametofont("TkDefaultFont")
-default_font.configure(size=24)
-root.option_add("*Font", default_font)
+root = Tk()                             # declare tikinter UI
+root.title("Simple Calculator")         # set display title
+# root.geometry("500x500")              # optional fixed size
+default_font = font.nametofont("TkDefaultFont")     # create font specification object (for sizing)
+default_font.configure(size=24)                     # congifure font ob
+root.option_add("*Font", default_font)              # set font ob to be used by our tkinter UI
 
-app = Window(root)
+app = Window(root)                      # create window object
 
-root.mainloop()
+root.mainloop()                         # run main
