@@ -16,7 +16,6 @@ def main():
     while running_calc.exit == False:
         running_calc.print_menu()
         running_calc.choose_operation()
-        running_calc.current_operation()
 
         if (running_calc.exit == True):
             break

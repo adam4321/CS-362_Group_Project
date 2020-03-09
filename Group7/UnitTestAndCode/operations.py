@@ -14,7 +14,7 @@ def multiplication(op1, op2):
 
 def division(op1, op2):
     if op2 == 0:
-        return "Invalid Input"
+        return "Invalid Input, cannot divide by 0"
     else:
         val = op1 / op2
         return round(val, 6)
