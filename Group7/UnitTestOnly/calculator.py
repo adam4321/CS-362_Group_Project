@@ -1,37 +1,36 @@
 """
-Group 7 Final Project CS-362
+Final Project CS-362
 Oregon State University Winter term 2020
+Group 7
 
+File that defines the supported math operations
 """
 
+import math
 
-class Calc:
-    def __init__(self, message):
-        self.message = message
+def multiplication(op1, op2):
+    return None
 
-    def Multiplication(self):
-        return None
+def division(op1, op2):
+    return None
 
-    def Division(self):
-        return None
+def square_root(op1):
+    return None
 
-    def Square_Root(self):
-        return None
+def power_two(op1):
+    return None
 
-    def Power_Two(self):
-        return None
+def inverse(op1):
+    return None
 
-    def Inverse(self):
-        return None
+def factorial(op1):
+    return None
 
-    def Factorial(self):
-        return None
+def absolute_val(op1):
+    return None
 
-    def Absolute_Val(self):
-        return None
+def sine(op1):
+    return None
 
-    def Sine(self):
-        return None
-
-    def Cosine(self):
-        return None
+def cosine(op1):
+    return None
